@@ -17,7 +17,7 @@
 
 var mysql = require('mysql');
 var con = mysql.createConnection({
-  host     : 'RDS_HOSTNAME',
+  host     : 'presentation-db.cmuokqciitb8.us-east-1.rds.amazonaws.com',
   user     : 'imroshan_adex',
   password : 'ugra#3194',
   port     : '3306',

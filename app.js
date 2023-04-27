@@ -11,9 +11,6 @@ app.set('view engine', 'ejs'); //view file
 app.use(express.static("public")); // Style.css 
 
 //render port 3000 
-app.listen(8000, function() {
-    console.log("Server is up and running ");
-})
 
 // Read Data from Database
 app.get("/", function(req, res) {
@@ -64,7 +61,7 @@ app.get("/update", function(req, res) {
 
         var sql = "select * from employee where id = ?;";
 
-        var id = req.query.id;
+        var id = req.query.id;    
 
         con.query(sql,[id], function(error, result) {
             if(error)console.log(error);

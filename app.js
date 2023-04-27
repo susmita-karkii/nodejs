@@ -26,11 +26,12 @@ app.get("/", function(req, res) {
 app.post("/", function(req, res) {
     var name = req.body.name;
     var email = req.body.email;
+    var phone = req.body.phone;
     var address = req.body.address;
     console.log(name, email);
 
-    var sql = 'INSERT INTO employee (name, email, address) values (?)';
-    var values = [name, email, address];
+    var sql = 'INSERT INTO employee (name, email,phone, address) values (?)';
+    var values = [name, email,phone, address];
 
     con.query(sql, [values], function(err, result) {
         if (err) throw err;
@@ -73,11 +74,12 @@ app.post("/updateData", function(req, res) {
   
     var name = req.body.name;
     var email = req.body.email;
+    var phone = req.body.phone;
     var address = req.body.address;
     var id = req.body.id;
 
-    var sql = "update employee set name=? , email=?, address=? where id =?;";
-    con.query(sql, [name, email, address, id], function(error, result) {
+    var sql = "update employee set name=? , email=?, phone=?, address=? where id =?;";
+    con.query(sql, [name, email,phone, address, id], function(error, result) {
 
         if (error) console.log(error);
         console.log("data updated");

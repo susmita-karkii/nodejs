@@ -11,7 +11,8 @@
       <div class="container">
          <form action="/" method="post">
             <input type="text" placeholder="Name" name="name">
-            <input type="text" placeholder="Email" name="email" autocomplete="off"> 
+            <input type="email" placeholder="Email" name="email" autocomplete="off"> 
+            <input type="text" placeholder="Phone Number" name="phone" autocomplete="off"> 
             <input type="text" placeholder="Address" name="address" autocomplete="off"> 
             <input type="submit" placeholder="Submit">
          </form>
@@ -21,6 +22,7 @@
             <th>id</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Phone</th>
             <th>Address</th>
             <th>Update</th>
             <th>Delete</th>
@@ -31,6 +33,7 @@
             <td> <%- test[i].id %></td>
             <td> <%- test[i].name %></td>
             <td> <%- test[i].email %></td>
+            <td> <%- test[i].phone %></td>
             <td> <%- test[i].address %></td>
             <td> <a href="/update?id=<%- test[i].id %>" target="_blank">Update</a></td>
             <td> <a href="/delete?id=<%- test[i].id %>" target="_blank">Delete</a></td>

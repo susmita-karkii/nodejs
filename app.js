@@ -10,7 +10,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs'); //view file
 app.use(express.static("public")); // Style.css 
 
-//render port 3000 
+//render port 8000 
+app.listen(8000, function(){
+    console.log("Server is Running");
+});
+
 
 // Read Data from Database
 app.get("/", function(req, res) {

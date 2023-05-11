@@ -17,12 +17,13 @@
 
 var mysql = require('mysql');
 var con = mysql.createConnection({
-  host     : 'presentation-db.cmuokqciitb8.us-east-1.rds.amazonaws.com',
-  user     : 'imroshan_adex',
-  password : 'ugra#3194',
+  host     : 'localhost',
+  user     : 'your-mysql-username',
+  password : 'your-mysql-password',
   port     : '3306',
-  database : 'presentation_db',
+  database : 'your-mysql-database-name',
 });
+
 con.connect(function(err) {
   if (err) {
     console.error('Database connection failed: ' + err.stack);

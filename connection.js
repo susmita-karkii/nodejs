@@ -18,10 +18,10 @@
 var mysql = require('mysql');
 var con = mysql.createConnection({
   host     : 'localhost',
-  user     : 'your-mysql-username',
-  password : 'your-mysql-password',
+  user     : 'sush',
+  password : 'sush123',
   port     : '3306',
-  database : 'your-mysql-database-name',
+  database : 'my_db',
 });
 
 con.connect(function(err) {

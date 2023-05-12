@@ -15,15 +15,15 @@
  
 // Comment  this if you are in local Machine
 
-var mysql = require('mysql');
-var con = mysql.createConnection({
+const mysql = require('mysql');
+const con = mysql.createConnection({
   host     : 'localhost',
   user     : 'sush',
   password : 'sush123',
   database : 'my_db',
 });
 
-con.connect(function(err) {
+connection.connect(function(err) {
   if (err) {
     console.error('Database connection failed: ' + err.stack);
     return;
@@ -31,4 +31,4 @@ con.connect(function(err) {
   console.log('Connected to database.');
 });
 
-module.exports = con;
+module.exports = connection;

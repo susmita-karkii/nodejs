@@ -35,8 +35,8 @@ app.post("/", function(req, res) {
     var address = req.body.address;
     console.log(name, email);
 
-    var sql = 'INSERT INTO employee (name, email,phone, address) values (?)';
-    var values = [name, email,phone, address];
+    var sql = 'INSERT INTO employee (id,name, email,phone, address) values (?)';
+    var values = [id,name, email,phone, address];
 
     con.query(sql, [values], function(err, result) {
         if (err) throw err;

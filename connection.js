@@ -23,7 +23,7 @@ const con = mysql.createConnection({
   database : 'my_db',
 });
 
-connection.connect(function(err) {
+con.connect(function(err) {
   if (err) {
     console.error('Database connection failed: ' + err.stack);
     return;
@@ -31,4 +31,4 @@ connection.connect(function(err) {
   console.log('Connected to database.');
 });
 
-module.exports = connection;
+module.exports = con;

@@ -20,7 +20,6 @@ var con = mysql.createConnection({
   host     : 'localhost',
   user     : 'sush',
   password : 'sush123',
-  port     : '3306',
   database : 'my_db',
 });
 

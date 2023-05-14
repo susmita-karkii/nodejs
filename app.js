@@ -1,8 +1,7 @@
 const express = require('express');
-require('dotenv').config();
 const app = express();
 
-var con = require("./connection");
+const con = require("./connection");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));

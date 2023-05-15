@@ -10,7 +10,7 @@ app.set('view engine', 'ejs'); //view file
 //app.use(express.static("public")); // Style.css 
 app.set('views', path.join(__dirname, '/views'));
 //render port 8000 
-app.listen(8000, function(){
+app.listen(3000, function(){
     console.log("Server is Running");
 });
 

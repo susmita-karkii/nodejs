@@ -7,8 +7,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('view engine', 'ejs'); //view file
-app.use(express.static("public")); // Style.css 
-
+//app.use(express.static("public")); // Style.css 
+app.set('views', path.join(__dirname, '/views'));
 //render port 8000 
 app.listen(8000, function(){
     console.log("Server is Running");

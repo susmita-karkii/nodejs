@@ -24,7 +24,7 @@ jobs:
         run: npm run test
         
       - name: Upload the node modules for next jobs
-        uses: actions/upload-artifacr@v2
+        uses: actions/upload-artifact@v2
         with:
           name: node_modules
           path: ./node_modules

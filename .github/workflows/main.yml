@@ -1,1 +1,64 @@
-
+name: Hosting nodejs app
+on:
+  push: 
+    branches:
+      - main
+      
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checking out code
+        uses: actions/checkout@v2
+        
+      - name: Set up Nodejs  version
+        uses: actions/setup-node@v3   
+        with: 
+         node-version: '18.x'
+         
+      - name: Install the node modules
+        run: npm install
+        
+      - name: Test node app
+        run: npm run test
+        
+      - name: Upload the node modules for next jobs
+        uses: actions/upload-artifacr@v2
+        with:
+          name: node_modules
+          path: ./node_modules
+          
+  deploy: 
+    runs-on: ubuntu_latest
+    needs: build
+    
+    steps: 
+    - name: checkout code
+      uses: actions/checkout@v2
+    - name: Downoad the artifact from the build job that we uploaded
+      uses: actions/download-artifact@v2
+      with:
+          name: node_modules
+          path: ./node_modules
+          
+    - name: Set up ssh key
+      run: |
+          echo "{{secrets.PRIVATE_KEY}}" >> key.pem
+          chmod 600 private.pem
+         
+    - name: Copy files to ec2 instance
+      run: |
+          scp -i private.pem \
+          -o StrictHostKeyChecking = no \
+          -o UserKnownHostsFile=/dev/null \
+          -r ./* ${{secrets.EC2_USERNAME}}@${{secrets.EC2_IP}}:/app/
+    
+    - name: start node app with pm2 Process manager    
+      run: |
+        ssh -i private.pem \
+        -o StrictHostKeyChecking=no \
+        -o UserKnownHostsFile=/dev/null \
+        ${{secrets.EC2_USERNAME}}@${{secrets.EC2_IP}} \
+        'chmod +x /app/pm2.sh && cd /app && ./pm2.sh'
+         

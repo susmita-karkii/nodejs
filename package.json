@@ -2,7 +2,7 @@
   "name": "presentation_2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "mocha test/app.test.js --exit",
@@ -19,7 +19,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^3.2.4",
     "nodemon": "^2.0.22"
-  }
+  },
   "devDependencies": {
     "chai": "^4.3.7",
     "chai-http": "^4.3.0",

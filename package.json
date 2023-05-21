@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/app.test.js --exit",
+    "build" : "echo \"Build Process\""
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,10 @@
     "mysql": "^2.18.1",
     "mysql2": "^3.2.4",
     "nodemon": "^2.0.22"
+  }
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.2.0"
   }
 }

@@ -52,7 +52,7 @@ jobs:
         scp -i key.pem \
         -o StrictHostKeyChecking=no \
         -o UserKnownHostsFile=/dev/null \
-        -r ./* ubuntu@34.207.192.176:/app/
+        -r ./* ubuntu@${{ secrets.EC2_IP }}:/app/
        
    
     - name: Install Mysql

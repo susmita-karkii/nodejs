@@ -52,7 +52,7 @@ jobs:
         scp -i key.pem \
         -o StrictHostKeyChecking=no \
         -o UserKnownHostsFile=/dev/null \
-        -r ./* ubuntu@${{ secrets.EC2_IP }}:/app/
+        -r ./* ubuntu@${{ secrets.EC2_IP }}:/home/ubuntu
        
    
     - name: Install Mysql
@@ -84,5 +84,5 @@ jobs:
         -o StrictHostKeyChecking=no \
         -o UserKnownHostsFile=/dev/null \
         ubuntu@${{secrets.EC2_IP}} \
-        'chmod +x /app/pm2.sh && cd /app && ./pm2.sh'
+        'chmod +x /home/ubuntu/pm2.sh && cd /home/ubuntu && ./pm2.sh'
          

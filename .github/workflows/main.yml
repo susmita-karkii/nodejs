@@ -87,6 +87,15 @@ jobs:
           
           
    
+   
+    - name: install PM2 and Start Node
+      run: | 
+        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@ubuntu@${{ secrets.EC2_IP}} '
+          sudo apt install -g pm2 -y
+          '
+   
+   
+   
     
     - name: start node app with pm2 Process manager    
       run: |

@@ -68,7 +68,7 @@ jobs:
     - name: Create Mysql User
       run: |
         ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP }} << EOF
-        mysql -u root -e "CREATE USER IF NOT EXISTS 'sush'@'localhost' IDENTIFIED BY 'sush123';
+        sudo mysql -u root -e "CREATE USER IF NOT EXISTS 'sush'@'localhost' IDENTIFIED BY 'sush123';
         GRANT ALL PRIVILEGES ON *.* TO 'sush'@'localhost';
         FLUSH PRIVILEGES;"
         exit

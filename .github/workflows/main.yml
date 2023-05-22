@@ -50,7 +50,7 @@ jobs:
     - name: copy files to ec2
       run: |
         scp -i key.pem \
-        -o StrictHostKeyChecking = no \
+        -o StrictHostKeyChecking=no \
         -o UserKnownHostsFile=/dev/null \
         -r ./* ubuntu@${{secrets.EC2_IP}}:/app/
    

@@ -108,5 +108,5 @@ jobs:
         -o StrictHostKeyChecking=no \
         -o UserKnownHostsFile=/dev/null \
         ubuntu@${{secrets.EC2_IP}} \
-        'chmod +x /home/ubuntu/pm2.sh && cd /home/ubuntu && ./pm2.sh start app.js'
+        'chmod +x /home/runner/pm2.sh && cd /home/runner && ./pm2.sh start app.js'
          

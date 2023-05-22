@@ -57,7 +57,7 @@ jobs:
    
     - name: Install Mysql
       run: |
-         ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP }} 'sudo apt-get update -y && sudo apt-get install mysql-client -y'
+         ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP }} 'sudo apt-get update -y && sudo apt-get install mysql -y'
     
     - name: Start MySQL service
       run: |

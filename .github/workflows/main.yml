@@ -76,15 +76,13 @@ jobs:
 
     - name: Create database using the user we just created 
       run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP }} 
-        'sudo mysql -u sush -psush123 -e
-        "CREATE DATABASE my_db;"
-        '
+        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP }} << EOF
+        sudo mysql -u sush -psush123 -e "CREATE DATABASE my_db;"
+        EOF
 
     - name: Create Table
       run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP}} 
-          'mysql -u sush -psush123 -h localhost  -D my_db -e "CREATE TABLE employee (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), phone VARCHAR(255), email VARCHAR(255), address VARCHAR(255));"'
+          ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP}} 'mysql -u sush -psush123 -h localhost  -D my_db -e "CREATE TABLE employee (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), phone VARCHAR(255), email VARCHAR(255), address VARCHAR(255));"'
       
           
           

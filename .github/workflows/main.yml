@@ -45,7 +45,7 @@ jobs:
     - name: Set up ssh key
       run: |
           echo "{{secrets.PRIVATE_KEY}}" >> key.pem
-          chmod 600 private.pem
+          chmod 600 key.pem
   
     - name: copy files to ec2
       run: |

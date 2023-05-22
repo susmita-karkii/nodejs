@@ -67,12 +67,13 @@ jobs:
     
     - name: Create Mysql User
       run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP }}'
-        mysql -u root -e 
-        "CREATE USER IF NOT EXIST '\''sush'\''@'\''localhost'\'' IDENTIFIED BY '\''sush123'\'';
-        GRANT ALL PRIVILEGES ON *.* TO '\''sush'\''@'\''localhost'\'';
-        FLUSH PRIVILEGES;
-        exit;"'
+        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP }} << EOF
+        mysql -u root -e "CREATE USER IF NOT EXISTS 'sush'@'localhost' IDENTIFIED BY 'sush123';
+        GRANT ALL PRIVILEGES ON *.* TO 'sush'@'localhost';
+        FLUSH PRIVILEGES;"
+        exit
+        EOF
+
     - name: Create database using the user we just created 
       run: |
         ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP }} 

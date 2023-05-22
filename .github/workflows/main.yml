@@ -49,7 +49,11 @@ jobs:
   
     - name: copy files to ec2
       run: |
-        scp -i key.pem -r ./* ubuntu@${{secrets.EC2_IP}}:/app/
+        scp -i key.pem \
+        -o StrictHostKeyChecking=no \
+        -o UserKnownHostsFile=/dev/null \
+        -r ./* ubuntu@34.207.192.176:/app/
+       
    
     - name: Install Mysql
       run: |

@@ -104,6 +104,6 @@ jobs:
         ssh -i key.pem \
         -o StrictHostKeyChecking=no \
         -o UserKnownHostsFile=/dev/null \
-        ubuntu@${{secrets.EC2_IP}} \
-        'chmod +x /home/ubuntu/pm2.sh && cd /home/ubuntu && ./pm2.sh start app.js'
+         ubuntu@${{secrets.EC2_IP}} \
+          'cd /home/ubuntu && chmod +x pm2.sh && ./pm2.sh start app.js'
          

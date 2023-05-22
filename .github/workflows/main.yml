@@ -20,7 +20,11 @@ jobs:
       - name: Install the node modules
         run: npm install
         
-     
+      - name: install PM2 
+        run: | 
+           npm install pm2 -g
+      
+   
         
       - name: Upload the node modules for next jobs
         uses: actions/upload-artifact@v3
@@ -88,10 +92,6 @@ jobs:
           
    
    
-    - name: install PM2 and Start Node
-      run: | 
-        ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP}} 'npm install pm2 -g'
-      
    
    
     

@@ -101,10 +101,10 @@ jobs:
         ./pm2.sh start app.js
        '
 
-    - name: Start node app with pm2 Process manager
-      run: |
-        ssh -i key.pem \
-          -o StrictHostKeyChecking=no \
-          -o UserKnownHostsFile=/dev/null \
-          ubuntu@${{ secrets.EC2_IP }} \
-          'cd /home/ubuntu && chmod +x pm2.sh && /usr/local/bin/pm2 start app.js'
+#     - name: Start node app with pm2 Process manager
+#       run: |
+#         ssh -i key.pem \
+#           -o StrictHostKeyChecking=no \
+#           -o UserKnownHostsFile=/dev/null \
+#           ubuntu@${{ secrets.EC2_IP }} \
+#           'cd /home/ubuntu && chmod +x pm2.sh && /usr/local/bin/pm2 start app.js'

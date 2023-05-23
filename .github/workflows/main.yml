@@ -99,6 +99,7 @@ jobs:
         nvm install --lts
         cd /home/ubuntu &&
         npm install
+        npm i mysql2
         node app.js
         '
         

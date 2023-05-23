@@ -90,12 +90,16 @@ jobs:
         export NVM_DIR="$HOME/.nvm" &&
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" &&
         [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" &&
+        nvm install --lts
         cd /home/ubuntu &&
-        nvm install --lts &&
-        npm install pm2 -g
-        chmod +x pm2.sh
-        ./pm2.sh start app.js
-       '
+        npm install
+        node app.js
+        '
+        
+      # npm install pm2 -g
+       # chmod +x pm2.sh
+        #./pm2.sh start app.js
+       
 
 #     - name: Start node app with pm2 Process manager
 #       run: |

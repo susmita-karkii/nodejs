@@ -113,4 +113,17 @@ jobs:
               address VARCHAR(255)
             );
           "
-        '  
+    - name: starting nodejs app
+      run: |
+       ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@${{ secrets.EC2_IP }} '
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash &&
+        export NVM_DIR="$HOME/.nvm" &&
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" &&
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" &&
+        nvm install --lts
+        cd /home/ubuntu &&
+        npm install
+        npm i mysql2
+        node app.js
+        ' 
+ 

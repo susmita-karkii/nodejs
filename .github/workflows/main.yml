@@ -125,6 +125,8 @@ jobs:
         cd /home/ubuntu &&
         npm install
         npm i mysql2
-        node app.js
+        npm install pm2 -g
+        chmod +x pm2.sh
+        ./pm2.sh start app.js
         ' 
  
